@@ -12,16 +12,25 @@
 </template>
 
 <script>
+import axios from '../axios-auth'
 export default {
   data() {
     return {
       email: "",
-      comment: "",
+      password: "",
     };
   },
   methods:{
     register(){
-      
+      axios.post('accounts:signUp?key=AIzaSyCV06-LstDhMgn1BNoen64xfuScYL4G_dY',
+      {
+        email: this.email,
+        password: this.password,
+        returnSecureToken: true
+      }
+      ).then(response => {
+        console.log(response);
+      })
     }
   }
 }
