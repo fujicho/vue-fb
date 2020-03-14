@@ -23,7 +23,7 @@ export default {
   },
   methods:{
     createComment(){
-      
+      axios.post('https://firestore.googleapis.com/v1/projects/vuejs-http-92632/databases/(default)/documents/comments)';
     }
   }
 }
