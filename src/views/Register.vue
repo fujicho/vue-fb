@@ -2,7 +2,7 @@
   <div>
     <h2>登録</h2>
     <label for="email">Email:</label>
-    <input id="email" type="text" v-model="email">
+    <input id="email" type="email" v-model="email">
     <br><br>
     <label for="password">パスワード:</label>
     <input id="password" type="password" v-model="password">
@@ -12,7 +12,8 @@
 </template>
 
 <script>
-import axios from '../axios-auth'
+import axios from '../axios-auth';
+
 export default {
   data() {
     return {
