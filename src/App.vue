@@ -9,6 +9,16 @@
   </div>
 </template>
 
+<script>
+export default {
+  computed: {
+    isAuthenticated(){
+      return this.$store.getters.idToken !== null;
+    }
+  }
+}
+</script>
+
 <style scoped>
   .header-item{
     padding: 10px;
