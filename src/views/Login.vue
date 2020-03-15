@@ -2,7 +2,7 @@
   <div>
     <h2>ログイン</h2>
     <label for="email">Email:</label>
-    <input id="email" type="text" v-model="email">
+    <input id="email" type="email" v-model="email">
     <br><br>
     <label for="password">パスワード:</label>
     <input id="password" type="password" v-model="password">
@@ -12,16 +12,26 @@
 </template>
 
 <script>
+import axios from '../axios-auth';
+
 export default {
   data() {
     return {
       email: "",
-      comment: "",
+      password: "",
     };
   },
   methods:{
     login(){
-
+      axios.post('accounts:signInWithPassword?key=AIzaSyCV06-LstDhMgn1BNoen64xfuScYL4G_dY',
+      {
+        email: this.email,
+        password: this.password,
+        returnSecureToken: true
+      }
+      ).then(response => {
+        console.log(response);
+      })
     }
   }
 }
