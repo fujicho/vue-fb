@@ -1,8 +1,12 @@
 <template>
   <div id="app">
     <header>
-      <router-link to="/" class="header-item">掲示板</router-link>
-      <router-link to="/login" class="header-item">ログイン</router-link>
+      <template v-if="isAuthenticated">
+        <router-link to="/" class="header-item">掲示板</router-link>
+      </template>
+      <template v-if="!isAuthenticated">
+        <router-link to="/login" class="header-item">ログイン</router-link>
+      </template>
       <router-link to="/register" class="header-item">登録</router-link>
     </header>
     <router-view></router-view>
